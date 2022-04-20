@@ -1,0 +1,13 @@
+.main_header {
+    width: 87%;
+    height: 70px;
+    background-color: #222;
+    float: right;
+}
+
+.main_title {
+    font-size: 1.8rem;
+    text-align: center;
+    padding-top: 0.7%;
+    color: #fafafa;
+}

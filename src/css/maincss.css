@@ -1,0 +1,13 @@
+.test {
+    display: inline;
+    float: right;
+    width: 87%;
+    height: 5000px;
+    background-color: lightgray;
+}
+
+.main_header {
+    width: 100%;
+    height: 70px;
+    background-color: #222;
+}

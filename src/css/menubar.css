@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+}
+
+.main {
+    transition: width .08s linear;
+    position: fixed;
+    display: inline-block;
+    width: 13%;
+    height: 58.58rem;
+    background-color: #222;
+}
+
+.main_hiden {
+    transition: width .08s linear;
+    width: 0%;
+    display: hidden;
+}
+
+.main h1 {
+    color: #fafafa;
+    font-size: 3rem;
+    margin-left: 14%;
+}
+
+.menu_list div {
+    color: #fafafa;
+    width: 99%;
+    height: 60px;
+    background-color: #222;
+    border-top: #222 0.5px solid;
+    margin-top: 1.5%;
+}
+
+.menu_list div:hover {
+    color: #fafafa;
+    width: 99%;
+    height: 60px;
+    background-color: #333;
+    border-top: #222 0.5px solid;
+    margin-top: 1.5%;
+}
+
+.menu_list p {
+    text-align: center;
+    padding-top: 8%;
+    text-decoration: none;
+}
