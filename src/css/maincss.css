@@ -11,3 +11,46 @@
     height: 70px;
     background-color: #222;
 }
+
+.product_Container {
+    width: 87%;
+    height: auto;
+    padding-bottom: 500px;
+    float: right;
+    background-color: thistle;
+}
+
+.excel {
+    vertical-align: middle;
+    float: right;
+    width: 180px;
+    font-size: 1.058rem;
+    height: 50px;
+    background-color: #e4e4e4;
+    padding-left: 1%;
+    margin-right: 1%;
+}
+
+.excel:hover {
+    vertical-align: middle;
+    float: right;
+    width: 180px;
+    font-size: 1.058rem;
+    height: 50px;
+    background-color: #d7d7d7;
+    padding-left: 1%;
+    margin-right: 1%;
+}
+
+.excel p {
+    display: inline-block;
+    vertical-align: 17px;
+}
+
+.excel img {
+    margin: 0;
+}
+
+#file {
+    display: none;
+}

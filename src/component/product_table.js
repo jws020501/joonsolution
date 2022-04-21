@@ -5,7 +5,9 @@ function Product_table() {
     return (
         <div>
             <table>
-                
+                <tr>
+                    <th></th>
+                </tr>
             </table>
         </div>
     )
