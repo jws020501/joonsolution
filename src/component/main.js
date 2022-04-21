@@ -2,35 +2,30 @@ import {React} from "react";
 import Menubar from "./menubar";
 import Header from "./header";
 import '../css/maincss.css'
-import { Axios } from "axios";
+import axios from "axios";
 // import request from "request";
 
 function Main(){
     
+    
     const read_excel=(e)=>{
-        Axios.get('localhost:5000/api/test',(err,res,body)=>{
-            console(res)
-        })
+        let files = e.target.files
+        upload(files)
     }
-    // const read_excel=(e)=>{
-    //     let files = e.target.files
-    //     upload(files)
-    // }
-    // const upload = (files)=>{
-    //     let form = new FormData();
-    //     form.append('files',files)
-    //     const config = {
-    //         headers: {
-    //           "content-type": "multipart/form-data"
-    //         }
-    //       };
-    //     axios.post("localhost:5000/api/upload/excel",form,config)
-    //         .then(res=>{
-    //             alert(res)
-    //         })
+    const upload = (files)=>{
+        let form = new FormData();
+        form.append('files',files)
+        const config = {
+            headers: {
+              "content-type": "multipart/form-data"
+            }
+          };
+        axios.post("localhost:5000/api/upload/excel",form,config)
+            .then(res=>{
+                alert(res)
+            })
 
-
-    // }
+    }
     
     return(
         <div>
