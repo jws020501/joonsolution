@@ -3,6 +3,7 @@ const express = require("express")
 const bodyParser = require('body-parser');
 const excel_read = require("../router/excel_read")
 const router = express.Router()
+const upload = require('./multer');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get("/test", (req, res) => {
@@ -10,10 +11,12 @@ router.get("/test", (req, res) => {
     res.send("OOOOOOOO")
 })
 router.post("/upload/excel", (req, res) => {
-    
-    console.log(req.body)
-    res.send("0")
-
+    upload(req2,res2,err=>{
+        if(err){
+            return res2.json({ success: false, err});
+        }
+        return console.log("nice");
+    })
 })
 
 
