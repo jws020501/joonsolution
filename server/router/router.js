@@ -11,12 +11,7 @@ router.get("/test", (req, res) => {
     res.send("OOOOOOOO")
 })
 router.post("/upload/excel", (req, res) => {
-    upload(req2,res2,err=>{
-        if(err){
-            return res2.json({ success: false, err});
-        }
-        return console.log("nice");
-    })
+    console.log('connct')
 })
 
 
