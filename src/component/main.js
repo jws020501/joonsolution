@@ -1,37 +1,34 @@
-import {React} from "react";
+import {React,useState} from "react";
 import Menubar from "./menubar";
 import Header from "./header";
 import '../css/maincss.css'
 import axios from "axios";
-import { response } from "express";
-// import request from "request";
+import * as XLSX from "xlsx";
+import qs from 'qs';
 
 function Main(){
-  const XLSX = require('xlsx')
-  function readExcel(e) {
-        let input = e.target
-        let reader = new FileReader();
-        reader.onload = function () {
-            let data = reader.result;
-            let workBook = XLSX.read(data, { type: 'binary' });
-            workBook.SheetNames.forEach(function (sheetName) {
-                console.log('SheetName: ' + sheetName);
-                let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
-                console.log(JSON.stringify(rows));
-                
-              const config = {
-                headers: {
-                  "content-type": "json"
-                }
-              };
-              axios.post("http://localhost:5000/api/upload/excel",test,config)
-                .then(res=>{
-                    alert(res)
-                })
-        })
-        };
-        reader.readAsBinaryString(input.files[0]);
-    }
+  
+  const [data2, setdata2] = useState("");
+  let readExcel = (e) =>{
+    const [file] = e.target.files;
+    const reader = new FileReader()
+
+    reader.onload = (evt) =>{
+      const bstr = evt.target.result;
+      const wb = XLSX.read(bstr, { type: "binary" });
+      const wsname = wb.SheetNames[0];
+      const ws = wb.Sheets[wsname];
+      const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
+      axios.post("http://localhost:5000/api/upload/excel",{
+      "data" : data
+    }).then(res=>{
+      alert("O")
+    })
+    };
+    reader.readAsBinaryString(file);
+  };
+
+  
     
     return(
         <div>
