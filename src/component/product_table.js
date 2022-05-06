@@ -1,7 +1,8 @@
 import React from "react";
 import '../css/product_table.css'
 
-function Product_table() {
+function ProductTable(props) {
+    var data = props.data
     return (
         <div>
             <table>
@@ -13,4 +14,4 @@ function Product_table() {
     )
 }
 
-export default Product_table
+export default ProductTable

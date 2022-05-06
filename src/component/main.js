@@ -1,14 +1,13 @@
 import {React,useState} from "react";
 import Menubar from "./menubar";
 import Header from "./header";
+import ProductTable from "./product_table";
 import '../css/maincss.css'
 import axios from "axios";
 import * as XLSX from "xlsx";
-import qs from 'qs';
 
 function Main(){
   
-  const [data2, setdata2] = useState("");
   let readExcel = (e) =>{
     const [file] = e.target.files;
     const reader = new FileReader()
@@ -22,12 +21,19 @@ function Main(){
       axios.post("http://localhost:5000/api/upload/excel",{
       "data" : data
     }).then(res=>{
-      alert("O")
+      loadproduct()
     })
     };
     reader.readAsBinaryString(file);
   };
+  var data = {}
 
+  let loadproduct = () =>{
+    axios.get('http://localhost:5000/api/loadproduct').then(res=>{
+      data = res.data.row
+    })
+  }
+  loadproduct()
   
     
     return(
@@ -37,10 +43,25 @@ function Main(){
          
         <div class="product_Container">
             <div class="product_controll">
-            <input type="text" value=""/>
             <label class="excel" for="file"><img src="https://cdn.icon-icons.com/icons2/1156/PNG/512/1486565571-microsoft-office-excel_81549.png" height="48" width="48" alt=""></img><p>엑셀 업로드</p></label>
             <input type="file" id="file" onChange={readExcel} multiple />
             </div>
+            <table>
+                <tr>
+                <td>상품명</td> 
+                <td>상품코드</td>
+                <td>판매가</td>
+                <td>카테고리대분류</td>
+                <td>카테고리중분류</td>
+                <td>카테고리소분류</td>
+                <td>카테고리세분류</td>
+                <td>카테고리대분류코드</td>
+                <td>카테고리중분류코드</td>
+                <td>카테고리소분류코드</td>
+                <td>카테고리세분류코드</td>
+                
+                </tr>
+              </table>
         </div>
         </div>
     )
